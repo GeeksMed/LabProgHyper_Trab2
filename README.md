@@ -17,8 +17,8 @@ Desssa forma concluí:
 - Base Layout (Front-End): fiz parte do layout, faltando implementar as TAGS
 - Funcionalidades: o Link para os sites estão sendo aberto em uma nova aba, para não precisar 
 fechar a ferramenta ao clicar nos mesmos.
-
-Falta:
--Pesquisa por TAG
 -Janela para cadastro: Funcionalidade + ADD
--Janela confirmação de Remoção
+  
+Falta:
+- Pesquisa por TAG
+- Janela confirmação de Remoção
