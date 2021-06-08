@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin-left: 25%;
+    font-family: cursive;
+
+    background: #ccc;
+}
+
+h1{
+    margin-top: 5%;
+    font-size: 400%;
+}
+
+h3{
+    margin-top: 1%;
+    font-size: 200%;
+}
+
+#formulario-busca-tools {
+    margin-bottom: 2%;
+}
+
+.busca_adiciona{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2% 0 2% 0;
+}
+
+input[type=text] {
+    background-color: white;
+    background-image: url('../img/searchicon.png');
+    background-position: 1%;
+    background-repeat: no-repeat;
+    padding: 2px 2px 2px 25px;
+    font-family: cursive;
+}
+
+.button_add {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 3% 50%;
+    margin-left: -100%;
+    font-weight: 900;
+    box-shadow: 3px 3px 2px 0 rgb(0 0 0);
+}
+
+.button_add:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.tools_card{
+    width: 100%;
+    align-items: flex-start;
+    margin-bottom: 3%;
+    padding: 15px;
+
+    background: #fff;
+    border-style: solid;
+}
+
+.tools a{
+    font-size: 120%;
+}
+
+.tools{
+    background: white;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.titulo_tool{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.botao-excluir{
+    text-decoration: none;
+    color: black;
+}

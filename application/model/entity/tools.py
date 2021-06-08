@@ -1,8 +1,9 @@
 class Tools:
 
-    def __init__(self, id: int, titulo: str, descricao: str, list: tags):
+    def __init__(self, id: int, titulo: str, link: str, descricao: str, tags: list):
         self.__id = id
         self.__titulo = titulo
+        self.__link = link
         self.__descricao = descricao
         self.__tags = tags
 
@@ -19,8 +20,16 @@ class Tools:
         return self.__titulo
 
     @titulo.setter
-    def titulo(self, value):
+    def link(self, value):
         self.__titulo
+
+    @property
+    def link(self):
+        return self.__link
+
+    @link.setter
+    def link(self, value):
+        self.__link = value
 
     @property
     def descricao(self):

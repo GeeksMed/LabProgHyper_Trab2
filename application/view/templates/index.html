@@ -3,35 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>A Web Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 <body>
     <h1>VUTTR</h1>
     <h3>Very Useful Tools to Remember</h3>
-    <section id="formulario-busca-todo">
-        <form action="{{ url_for('busca') }}" method="get" enctype="application/x-www-form-urlencoded">
-            <input type="text" id ='todo-palavrachave' name="palavra_chave" value="{{ palavra_chave if palavra_chave != None else '' }}">
-            <input type="submit" />
-            <input type="checkbox" id="in_tags" name="in_tags" checked>
-            <label for="in_tags">search in tags only</label>
-        </form>
-        <form action="{{ url_for('inserir')}}" method="post" enctype="application/x-www-form-urlencoded">
-            <input type="submit" value="+ Add">
-        </form>
+    <section id="formulario-busca-tools">
+        <div class="busca_adiciona">
+            <form action="{{ url_for('busca') }}" method="get" enctype="application/x-www-form-urlencoded">
+                <input type="text" id ='tools-palavrachave' name="palavra_chave" value="{{ palavra_chave if palavra_chave != None else '' }}" placeholder="search">
+                <input type="checkbox" id="in_tags" name="in_tags" checked>
+                <label for="in_tags">search in tags only</label>
+            </form>
+            <form action="{{ url_for('inserir')}}" method="post" enctype="application/x-www-form-urlencoded">
+                <input type="submit" class="button_add" value="+ Add">
+            </form>
+        </div>
     </section>
-    <section id="lista-todos">
-        {% for todo in todo_list %}
-            <section class="todo" id="todo-{{ todo.id }}">
-                 <header>
-                     <h2>{{ todo.titulo }}</h2>
-                     <p>{{ todo.data }}</p>
-                 </header>
-                 <article>{{ todo.descricao }}</article>
-                 <footer>
-                     <a class="botao-excluir" href="{{ url_for('excluir', id=todo.id) }}">Excluir</a>
-                     <a class="botao-atualizar" href="{{ url_for('atualizar', id=todo.id) }}">Atualizar</a>
-                 </footer>
-            </section>
+    <section id="lista-tools">
+        {% for tools in tools_list %}
+            <div class="tools_card">
+                <section class="tools" id="tools-{{ tools.id }}">
+                    <div class="titulo_tool">
+                        <header>
+                            <a class="link_pagina" onCLick="window.open('{{ tools.link }}','_blank');">{{ tools.titulo }}</a>
+                        </header>
+                        <a class="botao-excluir" href="{{ url_for('excluir', id=tools.id) }}"><b>x</b> remover</a>
+                    </div>
+                    <article>{{ tools.descricao }}</article>
+                </section>
+            </div>
         {% endfor %}
     </section>
 </body>
