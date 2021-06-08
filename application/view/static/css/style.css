@@ -4,7 +4,6 @@
 
     box-sizing: border-box;
 }
-
 body{
     display: flex;
     flex-direction: column;
@@ -14,14 +13,15 @@ body{
     font-family: cursive;
 
     background: #ccc;
+    opacity: 1.0;
 }
 
-h1{
+#nome_principal h1{
     margin-top: 5%;
     font-size: 400%;
 }
 
-h3{
+#nome_principal h3{
     margin-top: 1%;
     font-size: 200%;
 }
@@ -37,7 +37,12 @@ h3{
     margin: 2% 0 2% 0;
 }
 
-input[type=text] {
+input[type=text]{
+    border: solid;
+    padding: 1%;
+}
+
+#tools-palavrachave {
     background-color: white;
     background-image: url('../img/searchicon.png');
     background-position: 1%;
@@ -90,4 +95,81 @@ input[type=text] {
 .botao-excluir{
     text-decoration: none;
     color: black;
+}
+
+#pop{
+    width:40%;
+    display:none;
+    position:absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    padding: 0 2% 2% 1%;
+    border: solid;
+    background: white;
+}
+
+#fechar{
+    text-decoration: none;
+    color: black;
+    font-size: 200%;
+}
+
+.titulo_box{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.titulo_box b{
+    font-size: 150%;
+    vertical-align: super;
+}
+
+.titulo_box h3{
+    font-size: 120%;
+}
+
+#add_tool_form{
+    padding:0 3% 0 3%;
+}
+
+#input_tools input{
+    width:100%;
+    margin-bottom:2.5%;
+}
+
+#input_tools textarea{
+    width: 100%;
+    height: 70px;
+    border: solid;
+    margin-bottom: 2.5%;
+    resize: none;
+    overflow: auto;
+}
+
+#input_tools h5{
+    margin-bottom:1%;
+    font-size: 100%;
+}
+
+#botao_add_t{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.button_add_tool {
+    width: 20%;
+    background-color: white;
+    color: black;
+    border: solid;
+    font-weight: 900;
+    margin-top: 2%;
+    box-shadow: 3px 3px 2px 0 rgb(0 0 0);
+}
+
+.button_add_tool:hover {
+    background-color: #555555;
+    color: white;
 }

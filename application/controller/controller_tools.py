@@ -17,18 +17,14 @@ def home():
     return render_template("index.html", tools_list=tools_list)
 
 
-@app.route("/list", methods=['GET'])
-def listatools():
-    return render_template("index.html", tools_list=tools_list)
-
-
 @app.route("/inserir", methods=['POST'])
 def inserir():
     titulo = request.form.get('titulo', None)
+    link = request.form.get('link', None)
     descricao = request.form.get('descricao', None)
-    tags = request.form.get('tags', None)
+    tags = request.form.get('tags', None).split(" ")
     id = len(tools_list) + 1
-    tools = Tools(id, titulo, descricao, tags)
+    tools = Tools(id, titulo, link, descricao, tags)
     tools_list.append(tools)
     return render_template("index.html", tools_list=tools_list)
 
