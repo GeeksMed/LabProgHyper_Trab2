@@ -30,9 +30,9 @@
                     <section class="tools" id="tools-{{ tools.id }}">
                         <div class="titulo_tool">
                             <header>
-                                <a class="link_pagina" onCLick="window.open('{{ tools.link }}','_blank');">{{ tools.titulo }}</a>
+                                <a class="link_pagina" onCLick="window.open('{{ tools.link }}','_blank');" href="#">{{ tools.titulo }}</a>
                             </header>
-                            <a class="botao-excluir" onclick="abrirPopRemover({{ tools.id }})"><b>x</b> remover</a>
+                            <a class="botao_excluir" onclick="abrirPopRemover({{ tools.id }})" href="#"><b>x</b> remover</a>
                         </div>
                         <article>{{ tools.descricao }}</article>
                         <div id="tags_listagem">
@@ -45,12 +45,12 @@
                 </div>
                 <div class="remove_box" id="{{ tools.id }}">
                     <div class="titulo_box">
-                        <a id="fechar_cancelar" onclick="fecharPopRemover({{ tools.id }})"><b>x</b></a>
+                        <a class="botao_excluir" id="fechar_cancelar" onclick="fecharPopRemover({{ tools.id }})" href="#"><b>x</b></a>
                         <h3>Remove tool</h3>
                     </div>
                     <p>Are you sure you want to remove {{ tools.titulo }}.</p>
                     <div id="botao_remover_t">
-                        <a id="cancelar" class="button_style" onclick="fecharPopRemover({{ tools.id }})">Cancelar</a>
+                        <a id="cancelar" class="button_style" onclick="fecharPopRemover({{ tools.id }})" href="#">Cancelar</a>
                         <a id="botao-excluir" class="button_style" href="{{ url_for('excluir', id=tools.id) }}">Yes, remove</a>
                     </div>
                 </div>

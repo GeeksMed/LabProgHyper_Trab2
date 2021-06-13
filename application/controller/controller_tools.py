@@ -43,8 +43,14 @@ def busca():
     tools_list = tools_dao.retornar_tools()
     tools_list_filtrado = []
     palavra_chave = request.args.get('palavra_chave')
-    pesquisa_tag = request.args.get('tag', None)
+    pesquisa_tag = request.args.get("in_tags")
+    print(pesquisa_tag)
     for tools in tools_list:
-        if palavra_chave in tools.titulo or palavra_chave in tools.descricao:
-            tools_list_filtrado.append(tools)
+        if pesquisa_tag != "on":
+            if palavra_chave in tools.titulo or palavra_chave in tools.descricao or palavra_chave in tools.tags:
+                tools_list_filtrado.append(tools)
+        else:
+            if palavra_chave in tools.tags:
+                tools_list_filtrado.append(tools)
+
     return render_template("index.html", tools_list=tools_list_filtrado)

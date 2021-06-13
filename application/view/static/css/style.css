@@ -64,6 +64,7 @@ input[type=text]{
     font-weight: 900;
     box-shadow: 3px 3px 2px 0 rgb(0 0 0);
     margin-left: 3%;
+    text-decoration: none;
 }
 
 .button_add {
@@ -125,7 +126,7 @@ input[type=text]{
     color: blue;
 }
 
-.botao-excluir{
+.botao_excluir{
     text-decoration: none;
     color: black;
 }
