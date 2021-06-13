@@ -20,8 +20,8 @@ class Tools:
         return self.__titulo
 
     @titulo.setter
-    def link(self, value):
-        self.__titulo
+    def titulo(self, value):
+        self.__titulo = value
 
     @property
     def link(self):
@@ -46,3 +46,6 @@ class Tools:
     @tags.setter
     def tags(self, value):
         self.__tags = value
+
+    def add_tags(self, value):
+        self.__tags.append(value)

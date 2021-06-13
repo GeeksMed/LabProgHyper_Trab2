@@ -19,7 +19,7 @@
                     <input type="checkbox" id="in_tags" name="in_tags" checked>
                     <label for="in_tags">search in tags only</label>
                 </form>
-                <form onclick="document.getElementById('pop').style.display='block';document.getElementById('principal').style.opacity='0.5';">
+                <form onclick="abrirPopAdicionar()">
                     <input type="button" class="button_add" value="+ Add">
                 </form>
             </div>
@@ -32,17 +32,34 @@
                             <header>
                                 <a class="link_pagina" onCLick="window.open('{{ tools.link }}','_blank');">{{ tools.titulo }}</a>
                             </header>
-                            <a class="botao-excluir" href="{{ url_for('excluir', id=tools.id) }}"><b>x</b> remover</a>
+                            <a class="botao-excluir" onclick="abrirPopRemover({{ tools.id }})"><b>x</b> remover</a>
                         </div>
                         <article>{{ tools.descricao }}</article>
+                        <div id="tags_listagem">
+                            {% for tag in tools.tags %}
+                                <li class="tag">#{{ tag }}</li>
+                            {% endfor %}
+                        </div>
+
                     </section>
+                </div>
+                <div class="remove_box" id="{{ tools.id }}">
+                    <div class="titulo_box">
+                        <a id="fechar_cancelar" onclick="fecharPopRemover({{ tools.id }})"><b>x</b></a>
+                        <h3>Remove tool</h3>
+                    </div>
+                    <p>Are you sure you want to remove {{ tools.titulo }}.</p>
+                    <div id="botao_remover_t">
+                        <a id="cancelar" class="button_style" onclick="fecharPopRemover({{ tools.id }})">Cancelar</a>
+                        <a id="botao-excluir" class="button_style" href="{{ url_for('excluir', id=tools.id) }}">Yes, remove</a>
+                    </div>
                 </div>
             {% endfor %}
         </section>
     </div>
     <div id="pop">
         <div class="titulo_box">
-            <a href="#" id="fechar" onclick="document.getElementById('pop').style.display='none';document.getElementById('principal').style.opacity='1.0';"><b>+</b></a>
+            <a href="#" id="fechar" onclick="fecharPopAdicionar()"><b>+</b></a>
             <h3>Add new tool</h3>
         </div>
         <form id="add_tool_form" action="{{ url_for('inserir')}}" method="post" enctype="application/x-www-form-urlencoded">
@@ -61,5 +78,7 @@
             </div>
         </form>
     </div>
+
+<script src="{{ url_for('static', filename='scripts/scripts.js') }}"></script>
 </body>
 </html>

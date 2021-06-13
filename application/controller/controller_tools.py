@@ -1,24 +1,21 @@
 from application import app
 from flask import Flask, render_template, request, url_for
 from application.model.entity.tools import Tools
+from application.model.dao.toolsDAO import ToolsDAO
 
-tools_list = [
-    Tools(1, "Implementar Formulário Lab Programação Hipermídia", "https://github.com/UniversidadeDeVassouras/labproghiper-2021.1-todoweb",
-         "O professor pediu para implementar o formulário no projeto que dei andamento até aqui",
-         ["formulário", "programação"]),
-    Tools(2, "Transformar o ToDoWeb em MVC", "https://github.com/UniversidadeDeVassouras/labproghiper-2021.1-todoweb",
-         "O professor solicitou que eu aplicasse o MVC no projeto ToDoWeb",
-         ["ToDoWeb", "MVC"]),
-    Tools(3, "teste", "https://www.google.com" , "teste", ["teste", "teste2"]),
-]
 
 @app.route("/", methods=['GET'])
 def home():
+    tools_dao = ToolsDAO()
+    tools_list = tools_dao.retornar_tools()
     return render_template("index.html", tools_list=tools_list)
 
 
 @app.route("/inserir", methods=['POST'])
 def inserir():
+    tools_dao = ToolsDAO()
+    tools_list = tools_dao.retornar_tools()
+
     titulo = request.form.get('titulo', None)
     link = request.form.get('link', None)
     descricao = request.form.get('descricao', None)
@@ -31,6 +28,8 @@ def inserir():
 
 @app.route("/excluir/<int:id>", methods=['GET'])
 def excluir(id: int):
+    tools_dao = ToolsDAO()
+    tools_list = tools_dao.retornar_tools()
     for tools in tools_list:
         if tools.id == id:
             tools_list.remove(tools)
@@ -40,8 +39,11 @@ def excluir(id: int):
 
 @app.route("/busca")
 def busca():
+    tools_dao = ToolsDAO()
+    tools_list = tools_dao.retornar_tools()
     tools_list_filtrado = []
     palavra_chave = request.args.get('palavra_chave')
+    pesquisa_tag = request.args.get('tag', None)
     for tools in tools_list:
         if palavra_chave in tools.titulo or palavra_chave in tools.descricao:
             tools_list_filtrado.append(tools)
