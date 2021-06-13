@@ -44,7 +44,6 @@ def busca():
     tools_list_filtrado = []
     palavra_chave = request.args.get('palavra_chave')
     pesquisa_tag = request.args.get("in_tags")
-    print(pesquisa_tag)
     for tools in tools_list:
         if pesquisa_tag != "on":
             if palavra_chave in tools.titulo or palavra_chave in tools.descricao or palavra_chave in tools.tags:
